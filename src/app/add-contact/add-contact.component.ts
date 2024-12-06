@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';  // Importa CommonModule per *ngFor
 import { FormsModule } from '@angular/forms';   // Importa FormsModule per ngModel
 
@@ -12,9 +12,10 @@ import { FormsModule } from '@angular/forms';   // Importa FormsModule per ngMod
 export class AddContactComponent {
   newContact = { name: '', phone: '' };
 
-  addContact() {
-    console.log('New contact added:', this.newContact);
-    // Aggiungi qui la logica per aggiungere il contatto (es. aggiornare una lista)
+  @Output() addContact = new EventEmitter<{ name: string; phone: string }>(); // Emetti un evento
+
+  addContactToList() {
+    this.addContact.emit(this.newContact); // Emesso l'evento con il nuovo contatto
     this.newContact = { name: '', phone: '' }; // Resetta il modulo
   }
 }

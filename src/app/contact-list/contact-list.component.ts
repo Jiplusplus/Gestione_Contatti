@@ -1,16 +1,13 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Importa CommonModule per *ngFor
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';  // Importa CommonModule per *ngFor
 
 @Component({
   selector: 'app-contact-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule], // Aggiungi CommonModule per *ngFor
   templateUrl: './contact-list.component.html',
   styleUrls: ['./contact-list.component.css']
 })
 export class ContactListComponent {
-  contacts = [
-    { name: 'John Doe', phone: '123-456-7890' },
-    { name: 'Jane Smith', phone: '098-765-4321' }
-  ];
+  @Input() contacts: { name: string; phone: string }[] = [];
 }
