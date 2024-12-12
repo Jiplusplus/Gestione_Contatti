@@ -16,7 +16,10 @@ export class ContactListComponent {
   editingIndex: number | null = null; 
   editingContact: { name: string; phone: string } | null = null;
 
- 
+  isContactValid(contact: { name: string; phone: string }): boolean {
+    return contact.name.trim().length > 0 && /^[0-9]+$/.test(contact.phone.trim());
+  }
+
   get filteredContacts() {
     return this.contacts.filter(contact =>
       contact.name.toLowerCase().includes(this.searchQuery.toLowerCase()) || 
@@ -31,11 +34,15 @@ export class ContactListComponent {
 
   saveContact() {
     if (this.editingIndex !== null && this.editingContact) {
-      this.contacts[this.editingIndex] = this.editingContact; 
-      this.cancelEditing(); 
+      if (this.isContactValid(this.editingContact)) {
+        this.contacts[this.editingIndex] = this.editingContact; 
+        this.cancelEditing(); 
+      } else {
+        alert("Contatto non valido! Assicurati che il nome non sia vuoto e che il numero contenga solo numeri.");
+      }
     }
   }
-
+  
   cancelEditing() {
     this.editingIndex = null;
     this.editingContact = null;
