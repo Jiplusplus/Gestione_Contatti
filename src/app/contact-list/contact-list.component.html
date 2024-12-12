@@ -20,19 +20,19 @@
           [(ngModel)]="editingContact!.phone"
           placeholder="Telefono"
         />
-        <button (click)="saveContact()">Save</button>
-        <button (click)="cancelEditing()">Cancel</button>
-        <button (click)="deleteContact(i)">Delete</button> 
+        <button (click)="saveContact()">Salva</button>
+        <button (click)="cancelEditing()">Anulla</button>
+        <button (click)="deleteContact(i)">Elimina</button> 
       </ng-container>
       <ng-template #displayContact>
         <h3>{{ contact.name }}</h3>
         <p>{{ contact.phone }}</p>
-        <button (click)="startEditing(i)">Edit</button>
+        <button (click)="startEditing(i)">Modifica</button>
       </ng-template>
     </div>
   </div>
 
   <ng-template #noResults>
-    <p>No contacts match your search.</p>
+    <p>Nessun contatto trovato</p>
   </ng-template>
 </div>
