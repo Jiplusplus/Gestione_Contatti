@@ -1,21 +1,21 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';  // Importa CommonModule per *ngFor
-import { FormsModule } from '@angular/forms';   // Importa FormsModule per ngModel
+import { CommonModule } from '@angular/common';  
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-add-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule], // Aggiungi FormsModule qui
+  imports: [CommonModule, FormsModule], 
   templateUrl: './add-contact.component.html',
   styleUrls: ['./add-contact.component.css']
 })
 export class AddContactComponent {
   newContact = { name: '', phone: '' };
 
-  @Output() addContact = new EventEmitter<{ name: string; phone: string }>(); // Emetti un evento
+  @Output() addContact = new EventEmitter<{ name: string; phone: string }>(); 
 
   addContactToList() {
-    this.addContact.emit(this.newContact); // Emesso l'evento con il nuovo contatto
-    this.newContact = { name: '', phone: '' }; // Resetta il modulo
+    this.addContact.emit(this.newContact);
+    this.newContact = { name: '', phone: '' };
   }
 }

@@ -1,13 +1,13 @@
 <div class="add-contact">
-    <h2>Add a New Contact</h2>
+    <h2>Nuovo contatto</h2>
     <form (ngSubmit)="addContactToList()">
-      <label for="name">Name:</label>
+      <label for="name">Nome:</label>
       <input id="name" [(ngModel)]="newContact.name" name="name" required />
   
-      <label for="phone">Phone:</label>
+      <label for="phone">Numero telefono:</label>
       <input id="phone" [(ngModel)]="newContact.phone" name="phone" required />
   
-      <button type="submit">Add Contact</button>
+      <button type="submit">Aggiungi</button>
     </form>
   </div>
   

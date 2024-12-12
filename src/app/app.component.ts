@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Importa CommonModule per *ngFor
-import { ContactListComponent } from './contact-list/contact-list.component';  // Importa il componente della lista dei contatti
-import { AddContactComponent } from './add-contact/add-contact.component'; // Importa il componente per aggiungere un contatto
+import { CommonModule } from '@angular/common'; 
+import { ContactListComponent } from './contact-list/contact-list.component';  
+import { AddContactComponent } from './add-contact/add-contact.component';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +11,14 @@ import { AddContactComponent } from './add-contact/add-contact.component'; // Im
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Contact Management';
+  title = 'Gestione contatti';
   contacts = [
-    { name: 'John Doe', phone: '123-456-7890' },
-    { name: 'Jane Smith', phone: '098-765-4321' }
+    { name: 'Mattia', phone: '123456789' },
+    { name: 'Stefano', phone: '987456123' },
+    { name: 'Kai', phone: '569874123'}
   ];
 
   addContact(contact: { name: string; phone: string }) {
-    this.contacts.push(contact);  // Aggiungi il nuovo contatto alla lista
+    this.contacts.push(contact);
   }
 }

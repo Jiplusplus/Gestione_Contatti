@@ -1,7 +1,37 @@
 <div class="contact-list">
-    <div *ngFor="let contact of contacts" class="contact">
-      <h3>{{ contact.name }}</h3>
-      <p>{{ contact.phone }}</p>
+  <h2>Lista contatti</h2>
+  <input
+    type="text"
+    placeholder="Cerca per nome o per numero di telefono"
+    [(ngModel)]="searchQuery"
+    class="search-box"
+  />
+  
+  <div *ngIf="filteredContacts.length > 0; else noResults">
+    <div *ngFor="let contact of filteredContacts; let i = index" class="contact">
+      <ng-container *ngIf="editingIndex === i; else displayContact">
+        <input
+          type="text"
+          [(ngModel)]="editingContact!.name"
+          placeholder="Name"
+        />
+        <input
+          type="text"
+          [(ngModel)]="editingContact!.phone"
+          placeholder="Phone"
+        />
+        <button (click)="saveContact()">Save</button>
+        <button (click)="cancelEditing()">Cancel</button>
+      </ng-container>
+      <ng-template #displayContact>
+        <h3>{{ contact.name }}</h3>
+        <p>{{ contact.phone }}</p>
+        <button (click)="startEditing(i)">Edit</button>
+      </ng-template>
     </div>
   </div>
-  
+
+  <ng-template #noResults>
+    <p>No contacts match your search.</p>
+  </ng-template>
+</div>

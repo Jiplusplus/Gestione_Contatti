@@ -1,7 +1,6 @@
 <div class="container">
   <h1>{{ title }}</h1>
-
-  <!-- Passa la lista dei contatti e il metodo addContact al componente figlio -->
+  
   <app-contact-list [contacts]="contacts"></app-contact-list>
   <app-add-contact (addContact)="addContact($event)"></app-add-contact>
 </div>
