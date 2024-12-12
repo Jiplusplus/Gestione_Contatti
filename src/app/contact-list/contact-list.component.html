@@ -22,6 +22,7 @@
         />
         <button (click)="saveContact()">Save</button>
         <button (click)="cancelEditing()">Cancel</button>
+        <button (click)="deleteContact(i)">Delete</button> 
       </ng-container>
       <ng-template #displayContact>
         <h3>{{ contact.name }}</h3>

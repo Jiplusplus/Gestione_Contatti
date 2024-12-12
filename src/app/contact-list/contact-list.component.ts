@@ -47,4 +47,10 @@ export class ContactListComponent {
     this.editingIndex = null;
     this.editingContact = null;
   }
+
+  deleteContact(index: number) {
+    if (confirm('Sei sicuro di eliminare questo contatto?')) {
+      this.contacts.splice(index, 1);
+    }
+  }
 }
